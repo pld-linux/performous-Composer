@@ -1,0 +1,24 @@
+From 0115174ff26bbae31e2bf965061c004cbd152cbb Mon Sep 17 00:00:00 2001
+From: Tapio Vierros <tapiovierros@gmail.com>
+Date: Sat, 2 Apr 2011 15:37:36 +0300
+Subject: [PATCH] Fixed split action hiding notes.
+
+---
+ notelabelmanager.cc |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+diff --git a/notelabelmanager.cc b/notelabelmanager.cc
+index 7bc695c..0a94b63 100644
+--- a/notelabelmanager.cc
++++ b/notelabelmanager.cc
+@@ -207,6 +207,7 @@ void NoteLabelManager::split(NoteLabel *note, float ratio)
+ 	doOperation(new2, Operation::NO_UPDATE);
+ 	doOperation(Operation("DEL", id+2), Operation::NO_UPDATE);
+ 	doOperation(Operation("COMBINER", 3)); // This will combine the previous ones to one undo action
++	startNotePixmapUpdates();
+ }
+ 
+ void NoteLabelManager::del(NoteLabel *note)
+-- 
+1.7.4.1
+

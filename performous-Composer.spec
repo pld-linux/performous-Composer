@@ -7,6 +7,7 @@ Group:		Applications
 Source0:	http://downloads.sourceforge.net/performous/Composer-%{version}-source.tar.bz2
 # Source0-md5:	d67bee0f50b1f8d35f4f1745fb63484e
 Patch0:		%{name}-ffmpeg.patch
+Patch1:		%{name}-note_split.patch
 URL:		http://performous.org/composer
 BuildRequires:	QtCore-devel
 BuildRequires:	QtGui-devel
@@ -42,6 +43,7 @@ result of what the computer thinks the notes should be like.
 %setup -qc
 
 %patch0 -p1
+%patch1 -p1
 
 %build
 mkdir build
