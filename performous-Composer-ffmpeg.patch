@@ -1,0 +1,12 @@
+diff -dur performous-Composer-1.0.orig/ffmpeg.cc performous-Composer-1.0/ffmpeg.cc
+--- performous-Composer-1.0.orig/ffmpeg.cc	2011-02-28 23:25:05.000000000 +0100
++++ performous-Composer-1.0/ffmpeg.cc	2011-12-25 20:10:41.000000000 +0100
+@@ -69,7 +69,7 @@
+ 	for (unsigned int i=0; i<pFormatCtx->nb_streams; i++) {
+ 		AVCodecContext* cc = pFormatCtx->streams[i]->codec;
+ 		cc->workaround_bugs = FF_BUG_AUTODETECT;
+-		if (audioStream == -1 && cc->codec_type==CODEC_TYPE_AUDIO) audioStream = i;
++		if (audioStream == -1 && cc->codec_type==AVMEDIA_TYPE_AUDIO) audioStream = i;
+ 	}
+ 	if (audioStream == -1) throw std::runtime_error("No audio stream found");
+ 	AVCodecContext* cc = pFormatCtx->streams[audioStream]->codec;
